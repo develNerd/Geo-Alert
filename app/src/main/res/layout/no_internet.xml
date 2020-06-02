@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:padding="15dp"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ico_okay"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/alert"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_marginTop="20sp"
+            android:layout_below="@+id/ico_okay"
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_dark"
+            android:id="@+id/warning"
+            android:textSize="20sp"
+            android:text="No Internet Connection!"
+            android:gravity="center"/>
+
+
+        <TextView
+            android:layout_marginTop="20sp"
+            android:layout_below="@+id/warning"
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:id="@+id/Message"
+            android:text="Suggestions"
+            android:gravity="center"/>
+
+
+
+        <Button
+            android:layout_below="@+id/Message"
+            app:iconSize="16dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Call the police"
+            app:iconTint="@color/colorTextSecondary"
+            android:textAllCaps="false"
+            app:iconPadding="10dp"
+            android:id="@+id/police"
+            android:backgroundTint="@color/quantum_lightblue700"
+            style="@style/Widget.MaterialComponents.Button"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            />
+
+        <Button
+            android:layout_below="@+id/police"
+            app:iconSize="16dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Call Fire Service"
+            app:iconTint="@color/colorTextSecondary"
+            android:textAllCaps="false"
+            app:iconPadding="10dp"
+            android:id="@+id/fireservice"
+            android:backgroundTint="@color/authui_colorAccent"
+            style="@style/Widget.MaterialComponents.Button"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            />
+
+        <Button
+            android:layout_below="@+id/fireservice"
+            app:iconSize="16dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Call Ambulance"
+            app:iconTint="@color/colorTextSecondary"
+            android:textAllCaps="false"
+            app:iconPadding="10dp"
+            android:id="@+id/Ambulance"
+            android:backgroundTint="@android:color/holo_red_light"
+            style="@style/Widget.MaterialComponents.Button"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            />
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+</RelativeLayout>

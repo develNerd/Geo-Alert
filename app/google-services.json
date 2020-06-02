@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "602040543338",
+    "firebase_url": "https://geo-emergency-2e332.firebaseio.com",
+    "project_id": "geo-emergency-2e332",
+    "storage_bucket": "geo-emergency-2e332.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602040543338:android:5cec69276830b56d",
+        "android_client_info": {
+          "package_name": "com.example.geoemergency"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "602040543338-61gg660voglv2gju4etl4aaqgfig8qpt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.geoemergency",
+            "certificate_hash": "184cd71260ad45ba56daab2cf061de9eaa0ee602"
+          }
+        },
+        {
+          "client_id": "602040543338-vkh7tbhecpi9ct7mqocc3bcn957s8tgl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABzBStmGc3gVQqgJcmkeW-1il3d8IH7aA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "602040543338-vkh7tbhecpi9ct7mqocc3bcn957s8tgl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602040543338:android:7243cce2f6122ac3bd4213",
+        "android_client_info": {
+          "package_name": "org.flepper.geoalert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "602040543338-i32285o1m9epqstu2on2oo4r891qe436.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.flepper.geoalert",
+            "certificate_hash": "120324a590d54d73b0ecfc6e8dd0bdae21223ef6"
+          }
+        },
+        {
+          "client_id": "602040543338-vkh7tbhecpi9ct7mqocc3bcn957s8tgl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABzBStmGc3gVQqgJcmkeW-1il3d8IH7aA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "602040543338-vkh7tbhecpi9ct7mqocc3bcn957s8tgl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

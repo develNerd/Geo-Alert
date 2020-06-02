@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntroActivity">
+
+    <LinearLayout
+        android:id="@+id/transitionsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/geo"
+            android:text="Geo-Alert"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:id="@+id/introSliderViewPager"
+            android:layout_height="0dp"
+            android:layout_weight="3.5"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingTop="80dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="20dp"
+            android:background="@drawable/walkthrou_bg"
+            android:layout_weight="5.5">
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_marginTop="20dp"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:text="@string/health"
+                android:layout_alignParentTop="true"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/fire"
+                android:layout_marginTop="20dp"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:text="@string/fire"
+                android:layout_alignParentTop="true"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/life"
+                android:layout_marginTop="20dp"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:text="@string/life"
+                android:layout_alignParentTop="true"/>
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/nextElement"
+                android:layout_width="wrap_content"
+                app:backgroundTint="@color/white"
+                android:layout_above="@+id/indicator_container"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30sp"
+                android:layout_marginBottom="40dp"
+                android:contentDescription="@string/app_name"
+                app:srcCompat="@drawable/arrow"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/begin"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                app:backgroundTint="@color/white"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/text"
+                android:layout_marginTop="60dp"
+                android:text="Begin"
+                android:contentDescription="@string/app_name"
+                app:srcCompat="@drawable/arrow"/>
+
+
+
+            <RelativeLayout
+                android:layout_alignParentBottom="true"
+                android:id="@+id/indicator_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/logo"
+                >
+
+                <ImageView
+                    android:layout_toLeftOf="@+id/second"
+                    android:layout_marginEnd="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/indicator_active"/>
+
+                <ImageView
+                    android:id="@+id/second"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/indicator_inactive"/>
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/second"
+                    android:layout_marginStart="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/indicator_inactive"/>
+
+
+
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_marginBottom="30dp"
+                android:layout_alignParentBottom="true"
+                android:contentDescription="@string/app_name"
+                android:layout_marginTop="50dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+              />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

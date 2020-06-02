@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".emergency.EmergencyUnitMapActivity">
+
+    <LinearLayout
+        android:id="@+id/transitionsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/haaaa"
+        android:weightSum="10">
+
+        <RelativeLayout
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not working"
+                android:layout_centerVertical="true"
+                android:layout_margin="20sp"
+                android:id="@+id/workingswitch"/>
+
+            <ImageView
+                android:id="@+id/settings"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/settings"
+                android:layout_alignParentEnd="true"/>
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5.8">
+
+
+            <RelativeLayout
+                android:id="@+id/second"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <org.flepper.geoalert.models.CustomVertical
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:id="@+id/allLayout">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <org.flepper.geoalert.CustomScrollView
+                            android:id="@+id/maplayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="350dp"
+                            >
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="350dp"
+                                    android:id="@+id/mapM"
+                                    android:layout_marginEnd="30sp"
+                                    android:layout_marginStart="20sp"
+                                    android:layout_height="350dp"
+                                    android:elevation="15dp"
+                                    android:background="@drawable/location_bg"
+                                    >
+
+
+
+
+
+                                    <RelativeLayout
+                                        android:elevation="10dp"
+                                        android:id="@+id/mapView"
+                                        android:visibility="visible"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+                                        <fragment
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:id="@+id/map"
+                                            tools:context=".MapsActivity"
+                                            android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+
+
+
+                                    </RelativeLayout>
+
+
+
+
+
+
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <RelativeLayout
+                                    android:layout_width="350dp"
+                                    android:layout_marginStart="20sp"
+                                    android:layout_marginEnd="15sp"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/PlayerContentView"
+                                    android:layout_toEndOf="@+id/mapM">
+
+                                    <com.bambuser.broadcaster.SurfaceViewWithAutoAR
+                                        android:id="@+id/VideoSurfaceView"
+                                        android:layout_width="match_parent"
+
+                                        android:layout_height="match_parent"
+                                        />
+                                    <TextView
+                                        android:id="@+id/live_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_marginEnd="12dp"
+                                        android:layout_marginTop="12dp"
+                                        android:background="@drawable/round_corner_red"
+                                        android:gravity="center"
+                                        android:paddingBottom="10dp"
+                                        android:paddingLeft="16dp"
+                                        android:paddingRight="16dp"
+                                        android:paddingTop="10dp"
+                                        android:textAlignment="center"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold"
+                                        android:visibility="gone"
+                                        tools:text="LIVE  00:00"
+                                        tools:visibility="visible" />
+                                </RelativeLayout>
+
+                            </RelativeLayout>
+
+
+                        </org.flepper.geoalert.CustomScrollView>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="350dp"
+                            android:weightSum="10"
+                            android:layout_below="@+id/maplayout">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="7.4"
+                                android:id="@+id/list_of_messages"/>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:orientation="horizontal"
+                                android:weightSum="10"
+                                android:layout_weight="2.5">
+
+
+
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/email"
+                                    android:layout_weight="6.5"
+                                    app:boxBackgroundColor="#00000000"
+                                    android:textColorHint="@color/colorTextSecondary"
+                                    android:layout_marginTop="12dp"
+                                    app:endIconMode="clear_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:errorEnabled="true">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:textColor="@color/colorTextPrimary"
+                                        android:layout_width="match_parent"
+                                        android:id="@+id/message_field"
+                                        android:gravity="start"
+                                        android:textColorHint="@color/colorTextSecondary"
+                                        android:hint="message here"
+                                        android:layout_height="match_parent"
+                                        />
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <Button
+                                    android:gravity="center"
+                                    android:layout_weight="3"
+                                    app:iconSize="16dp"
+                                    android:layout_gravity="center"
+                                    android:textSize="20sp"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:text="Send"
+                                    android:textAllCaps="false"
+                                    app:iconPadding="10dp"
+                                    android:id="@+id/send"
+                                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    />
+
+
+
+                            </LinearLayout>
+
+
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </org.flepper.geoalert.models.CustomVertical>
+
+
+
+
+
+
+
+
+
+                <TextView
+                    android:layout_below="@+id/radioButton"
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="@string/swictch"/>
+
+                <Switch
+                    android:layout_below="@+id/allLayout"
+                    android:layout_margin="15dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/radioButton"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:layout_gravity="bottom"/>
+
+
+            </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="15dp"
+            android:layout_weight="2">
+
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text=""/>
+
+
+            <TextView
+                android:layout_below="@+id/name"
+                android:id="@+id/muDistace"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text=""/>
+
+
+
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="15dp"
+            android:layout_weight="1.2">
+
+
+            <Button
+                android:visibility="gone"
+                app:iconSize="16dp"
+                android:layout_alignParentStart="true"
+                app:icon="@drawable/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_centerInParent="true"
+                app:iconTint="@color/colorPrimaryDark"
+                android:textAllCaps="false"
+                android:text="Cancel Request"
+                android:id="@+id/cancel"
+                android:textSize="18sp"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:textColor="@color/colorPrimaryDark"
+                />
+
+            <Button
+                app:iconSize="16dp"
+                android:layout_alignParentEnd="true"
+                app:icon="@drawable/messenger_bubble_large_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_centerInParent="true"
+                app:iconTint="@color/colorPrimaryDark"
+                android:textAllCaps="false"
+                android:text="View Message"
+                android:id="@+id/viewMessage"
+                android:textSize="18sp"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:textColor="@color/colorPrimaryDark"
+                />
+
+            <Button
+                android:visibility="gone"
+                app:iconSize="16dp"
+                android:layout_alignParentEnd="true"
+                app:icon="@drawable/arrow_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_centerInParent="true"
+                app:iconTint="@color/colorPrimaryDark"
+                android:textAllCaps="false"
+                android:text="Go Back"
+                android:id="@+id/goBack"
+                android:textSize="18sp"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:textColor="@color/colorPrimaryDark"
+                />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

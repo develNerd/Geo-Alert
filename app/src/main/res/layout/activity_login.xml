@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="10"
+        android:orientation="vertical">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            android:layout_weight="1.6">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign In"
+                android:layout_centerInParent="true"
+                android:textSize="25sp"/>
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            android:layout_weight="4">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email"
+                android:nextFocusDown="@+id/passordV"
+                android:textColorHint="@color/colorTextSecondary"
+                app:startIconDrawable="@drawable/inbox"
+                android:layout_marginTop="12dp"
+                app:endIconMode="clear_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:textColor="@color/colorTextPrimary"
+                    android:layout_width="match_parent"
+                    android:id="@+id/email_field"
+                    android:gravity="start"
+                    android:textColorHint="@color/colorTextSecondary"
+                    android:hint="Email or Username"
+                    android:layout_height="match_parent"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passordV"
+                android:layout_below="@+id/email"
+                app:startIconDrawable="@drawable/password"
+                app:boxStrokeColor="@color/colorTextSecondary"
+                android:layout_marginTop="15dp"
+                app:endIconMode="password_toggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:textColor="@color/colorTextPrimary"
+                    android:layout_width="match_parent"
+                    android:id="@+id/password_field"
+                    android:inputType="textPassword"
+                    android:gravity="start"
+                    android:textColorHint="@color/colorTextSecondary"
+                    android:hint="Password"
+                    android:layout_height="match_parent"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:layout_below="@+id/passordV"
+                app:iconSize="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:text="Login"
+                android:layout_alignParentEnd="true"
+                android:textAllCaps="false"
+                app:iconPadding="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:id="@+id/login"
+                app:strokeColor="@color/colorPrimary"
+                style="@style/Widget.MaterialComponents.Button"
+                android:textColor="@android:color/white"
+                />
+
+
+            <Button
+                android:layout_below="@+id/passordV"
+                app:iconSize="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:text="New here? Sign Up"
+                android:textAllCaps="false"
+                app:iconPadding="10dp"
+                android:id="@+id/signUp"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:textColor="@color/colorPrimary"
+                />
+
+
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:paddingBottom="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/walkthrou_bg"
+            android:layout_weight="4.4">
+
+            <RelativeLayout
+                android:layout_marginTop="20sp"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/contacts">
+
+                <ImageView
+                    android:id="@+id/ig"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/instagram"/>
+
+                <ImageView
+                    android:layout_toStartOf="@+id/ig"
+                    android:id="@+id/tw"
+                    android:layout_marginEnd="20sp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/twitter"/>
+
+
+                <ImageView
+                    android:layout_toEndOf="@+id/ig"
+                    android:id="@+id/link"
+                    android:layout_marginStart="20sp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/linkedin"/>
+
+            </RelativeLayout>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:outlineSpotShadowColor="@color/white"
+                android:layout_above="@+id/welcome"
+                android:layout_marginBottom="15dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/progress"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/welcome"
+                android:textSize="18sp"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Geo Alert"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"/>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

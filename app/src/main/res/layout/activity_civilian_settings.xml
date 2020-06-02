@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".civilian.CivilianSettingsActivity">
+
+    <LinearLayout
+        android:background="@drawable/haaaa"
+        android:padding="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <RelativeLayout
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/alef"
+                android:text="Welcome, Isaac"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="50sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_height="50sp"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/contacts"
+                app:civ_border_width="0.5dp"
+                app:civ_border_color="@color/colorPrimaryDark"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3.5"
+            android:background="@drawable/piebg"
+            tools:ignore="NestedWeights" >
+
+
+
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:layout_width="match_parent"
+                android:id="@+id/piechart"
+                android:layout_height="match_parent"/>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5">
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:text="The Chart above shows emergency results on your current location"
+                android:textAlignment="center"/>
+
+
+            <LinearLayout
+                android:id="@+id/lay2"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:layout_below="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp">
+
+              <TextView
+                  android:layout_width="0dp"
+                  android:layout_weight="0.4"
+                  android:textColor="@color/colorPrimaryDark"
+                  android:layout_height="wrap_content"
+                  android:text="Your Phone number"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.1"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_weight="0.4"
+                    android:textAlignment="textEnd"
+                    android:layout_height="wrap_content"
+                    android:text="0205720857"/>
+
+
+
+
+
+            </LinearLayout>
+
+
+            <Button
+                app:iconSize="16dp"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Edit User Details"
+                android:layout_below="@+id/lay2"
+                app:iconTint="@android:color/white"
+                android:textAllCaps="false"
+                android:id="@+id/edit"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_centerHorizontal="true"
+                />
+
+
+            <RelativeLayout
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit"
+                android:layout_marginTop="20sp"
+                >
+
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/location"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/img"
+                    android:layout_marginStart="20sp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="Your current location is Ho"/>
+
+
+
+
+
+
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_alignParentBottom="true"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_marginTop="50sp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/power"/>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

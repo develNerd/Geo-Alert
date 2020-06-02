@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserInfo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="10"
+        android:orientation="vertical">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            android:layout_weight="1.6">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Almost Done!"
+                android:layout_centerInParent="true"
+                android:textSize="25sp"/>
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            android:layout_weight="6">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:id="@+id/top">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/contacts"
+                    app:civ_border_width="0.5dp"
+                    app:civ_border_color="@color/colorPrimaryDark"/>
+
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:id="@+id/load"
+                    android:src="@drawable/upload"
+                    android:layout_height="48dp"
+                    android:layout_toLeftOf="@+id/upload"/>
+
+
+                <Button
+                    app:iconSize="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:text="Take picture"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:textAllCaps="false"
+                    app:iconPadding="10dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:id="@+id/upload"
+                    app:strokeColor="@color/colorPrimary"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:textColor="@android:color/white"
+                    />
+
+
+
+            </RelativeLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/userName"
+                android:layout_below="@+id/top"
+                app:boxStrokeColor="@color/colorTextSecondary"
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:textColor="@color/colorTextPrimary"
+                    android:layout_width="match_parent"
+                    android:id="@+id/name_field"
+                    android:gravity="start"
+                    android:textColorHint="@color/colorTextSecondary"
+                    android:hint="Enter Your Name"
+                    android:layout_height="match_parent"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phoneNumberv"
+                android:layout_below="@+id/userName"
+                app:boxStrokeColor="@color/colorTextSecondary"
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:textColor="@color/colorTextPrimary"
+                    android:layout_width="match_parent"
+                    android:id="@+id/phonenumber_field"
+                    android:inputType="number"
+                    android:gravity="start"
+                    android:textColorHint="@color/colorTextSecondary"
+                    android:hint="Enter Your Phone Number"
+                    android:layout_height="match_parent"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/lay2"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:weightSum="1"
+                android:layout_below="@+id/phoneNumberv"
+                android:baselineAligned="false">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/passordV"
+                    android:layout_below="@+id/userName"
+                    app:boxStrokeColor="@color/colorTextSecondary"
+                    android:layout_marginTop="15dp"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="2"
+                    android:layout_weight="0.3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:textColor="@color/colorTextPrimary"
+                        android:layout_width="match_parent"
+                        android:id="@+id/age_field"
+                        android:maxLength="2"
+                        android:inputType="number"
+                        android:gravity="start"
+                        android:textColorHint="@color/colorTextSecondary"
+                        android:hint="Your Age"
+                        android:layout_height="match_parent"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="5dp"
+                    android:layout_weight="0.1"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/GenderV"
+                    android:layout_marginBottom="5dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                    app:boxStrokeColor="@color/colorTextSecondary"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="0.6"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:errorEnabled="true">
+
+
+                    <AutoCompleteTextView
+                        android:hint="Select Gender"
+                        android:id="@+id/gender_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="none"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </LinearLayout>
+
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/lay2"
+                android:visibility="gone"
+                android:layout_marginStart="10dp"/>
+
+            <Button
+                android:layout_below="@+id/lay2"
+                app:iconSize="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:text="Continue"
+                android:layout_alignParentEnd="true"
+                android:textAllCaps="false"
+                app:iconPadding="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:id="@+id/begin"
+                app:strokeColor="@color/colorPrimary"
+                style="@style/Widget.MaterialComponents.Button"
+                android:textColor="@android:color/white"
+                />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:paddingBottom="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/walkthrou_bg"
+            android:layout_weight="2.4">
+
+            <RelativeLayout
+                android:layout_marginTop="20sp"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/contacts">
+
+                <ImageView
+                    android:id="@+id/ig"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/instagram"/>
+
+                <ImageView
+                    android:layout_toStartOf="@+id/ig"
+                    android:id="@+id/tw"
+                    android:layout_marginEnd="20sp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/twitter"/>
+
+
+                <ImageView
+                    android:layout_toEndOf="@+id/ig"
+                    android:id="@+id/link"
+                    android:layout_marginStart="20sp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/linkedin"/>
+
+            </RelativeLayout>
+
+
+
+
+            <TextView
+                android:layout_above="@+id/flep"
+                android:id="@+id/from"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"/>
+
+
+            <TextView
+                android:layout_above="@+id/contacts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:id="@+id/flep"
+                android:text="Geo Alert"
+                android:textColor="@android:color/white"/>
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

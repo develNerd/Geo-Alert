@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".civilian.CivilianMapActivity">
+
+
+    <LinearLayout
+        android:id="@+id/transitionsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/haaaa"
+        android:weightSum="10">
+
+        <RelativeLayout
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7">
+
+            <TextView
+                android:id="@+id/text2"
+                android:visibility="gone"
+                android:textAlignment="center"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alef"
+                android:text="Hello, Isaac Help is on its way"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/settings"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/settings"
+                android:layout_alignParentEnd="true"/>
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7.8">
+
+
+            <RelativeLayout
+                android:id="@+id/second"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/phone"
+                    android:visibility="gone"/>
+
+
+
+                <org.flepper.geoalert.models.CustomVertical
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:id="@+id/scroll">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <org.flepper.geoalert.CustomScrollView
+                            android:id="@+id/maplayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="350dp">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent">
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/view"
+                                    android:elevation="15dp"
+                                    android:background="@drawable/location_bg"
+                                    >
+
+
+
+
+
+
+
+                                    <RelativeLayout
+                                        android:elevation="10dp"
+                                        android:id="@+id/mapView"
+                                        android:visibility="visible"
+                                        android:layout_width="350dp"
+                                        android:layout_marginStart="15dp"
+                                        android:layout_marginEnd="30sp"
+                                        android:layout_height="match_parent">
+
+
+                                        <fragment
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:id="@+id/map"
+                                            tools:context=".MapsActivity"
+                                            android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+                                    </RelativeLayout>
+
+
+
+
+
+
+
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <RelativeLayout
+                                    android:layout_toRightOf="@+id/view"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginEnd="20sp"
+                                    android:layout_marginStart="15sp"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/bambusaa">
+                                    <com.bambuser.broadcaster.SurfaceViewWithAutoAR
+                                        android:id="@+id/previewSurface"
+                                        android:layout_width="350dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_alignParentTop="true"
+                                        />
+
+                                    <TextView
+                                        android:id="@+id/live_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_marginEnd="12dp"
+                                        android:layout_marginTop="12dp"
+                                        android:background="@drawable/round_corner_red"
+                                        android:gravity="center"
+                                        android:paddingBottom="10dp"
+                                        android:paddingLeft="16dp"
+                                        android:paddingRight="16dp"
+                                        android:paddingTop="10dp"
+                                        android:textAlignment="center"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold"
+                                        android:visibility="visible"
+                                        tools:text="LIVE  00:00"
+                                        tools:visibility="visible" />
+                                </RelativeLayout>
+                            </RelativeLayout>
+
+
+
+
+                        </org.flepper.geoalert.CustomScrollView>
+
+                        <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"
+                        android:weightSum="10"
+                        android:layout_below="@+id/maplayout">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="7.4"
+                            android:id="@+id/list_of_messages"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.1"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:orientation="horizontal"
+                            android:weightSum="10"
+                            android:layout_weight="2.5">
+
+
+
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/email"
+                                android:layout_weight="6.5"
+                                app:boxBackgroundColor="#00000000"
+                                android:textColorHint="@color/colorTextSecondary"
+                                android:layout_marginTop="12dp"
+                                app:endIconMode="clear_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:errorEnabled="true">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:textColor="@color/colorTextPrimary"
+                                    android:layout_width="match_parent"
+                                    android:id="@+id/message_field"
+                                    android:gravity="start"
+                                    android:importantForAutofill="no"
+                                    android:textColorHint="@color/colorTextSecondary"
+                                    android:hint="message here"
+                                    android:layout_height="match_parent"
+                                    />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <Button
+                                android:gravity="center"
+                                android:layout_weight="3"
+                                app:iconSize="16dp"
+                                android:layout_gravity="center"
+                                android:textSize="20sp"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:text="Send"
+                                android:textAllCaps="false"
+                                app:iconPadding="10dp"
+                                android:id="@+id/sendthemessage"
+                                style="@style/Widget.MaterialComponents.Button.TextButton"
+                                android:textColor="@color/colorPrimaryDark"
+                                />
+
+
+
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+
+                    </RelativeLayout>
+
+                </org.flepper.geoalert.models.CustomVertical>
+
+
+
+
+                <TextView
+                    android:layout_below="@+id/radioButton"
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="@string/swictch"/>
+
+                <Switch
+                    android:layout_below="@+id/scroll"
+                    android:layout_margin="15dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/radioButton"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:layout_gravity="bottom"/>
+
+                <Button
+                    app:iconSize="16dp"
+                    app:icon="@drawable/phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Call Connected Esp"
+                    android:layout_below="@+id/textView"
+                    app:iconTint="@color/colorPrimaryDark"
+                    android:textAllCaps="false"
+                    android:id="@+id/call"
+                    style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                    android:textColor="@color/colorPrimaryDark"
+                    />
+
+                <Button
+                    app:iconSize="16dp"
+                    app:icon="@drawable/camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Call Connected Esp"
+                    android:layout_below="@+id/call"
+                    android:layout_centerHorizontal="true"
+                    app:iconTint="@color/colorPrimaryDark"
+                    android:textAllCaps="false"
+                    android:id="@+id/video"
+                    style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                    android:textColor="@color/colorPrimaryDark"
+                    />
+
+
+                <Button
+                    android:layout_alignParentEnd="true"
+                    app:iconSize="16dp"
+                    app:icon="@drawable/comments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Send a short message"
+                    android:layout_below="@+id/textView"
+                    app:iconTint="@color/colorPrimaryDark"
+                    android:textAllCaps="false"
+                    android:id="@+id/sendMessage"
+                    style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                    android:textColor="@color/colorPrimaryDark"
+                    />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:visibility="visible"
+                android:id="@+id/first"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_height="wrap_content">
+                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                        android:id="@+id/circularProgressBar"
+                        android:layout_width="270dp"
+                        android:layout_height="270dp"
+                        android:layout_centerInParent="true"
+                        app:cpb_background_progressbar_color="#b6bbd8"
+                        app:cpb_background_progressbar_width="5dp"
+                        app:cpb_progress_direction="to_right"
+                        app:cpb_progressbar_color="#3f51b5"
+                        app:cpb_progressbar_width="10dp"
+                        app:cpb_round_border="false" />
+
+                    <RelativeLayout
+                        android:id="@+id/help"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_margin="10dp"
+                        android:clickable="true"
+                        android:layout_centerInParent="true"
+                        android:stateListAnimator="@animator/info_icon_state_selector"
+                        android:elevation="2dp"
+                        android:background="@drawable/info_icon_selector">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="Help"
+                            android:textStyle="bold"
+                            android:textSize="50sp"
+                            android:textColor="#fff"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/latlong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lat"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:id="@+id/Lat"
+                        />
+
+                    <TextView
+                        android:layout_marginStart="20sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Long"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_toRightOf="@+id/Lat"
+                        android:textSize="18sp"
+                        android:id="@+id/longitude"
+                        />
+
+                </RelativeLayout>
+                <TextView
+                    android:textSize="18sp"
+                    android:id="@+id/mRequest"
+                    android:layout_marginBottom="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@+id/latlong"
+                    android:text=""/>
+
+            </RelativeLayout>
+
+
+
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="15dp"
+            android:layout_weight="1.5">
+
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/patience"
+                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:text="@string/patience"/>
+
+            <RelativeLayout
+                android:id="@+id/radioView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:weightSum="10"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:gravity="center"
+                    android:id="@+id/mRadioGroup"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/police"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PoliceOfficer"/>
+
+                    <RadioButton
+                        android:gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:id="@+id/Ambulance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ambulance"/>
+
+                    <RadioButton
+                        android:gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:id="@+id/fire"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fire Service"/>
+                </RadioGroup>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
