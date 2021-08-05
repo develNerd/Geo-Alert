@@ -1,0 +1,4 @@
+# Geo-Alert
+
+Geo-emergency is a Realtime software comprising of a web application and mobile application designed to address emergency needs of citizens and students in general. Geo-emergency does this by creating an intimate relationship between users and the various emergency units.
+The way emergency services address the needs of citizens is paramount to the various governing bodies of any country or institution. In the last few months, there has been a major threat posed to the security of Ghanaian citizens, this has somehow struck fear into some civilians. Also, the response to civilians when an emergency alert is issued is appalling, which mostly leads to loss of life. If the response to road accidents, theft, fire outbreaks and other life-threatening issues is efficient, so many lives would be saved.  
