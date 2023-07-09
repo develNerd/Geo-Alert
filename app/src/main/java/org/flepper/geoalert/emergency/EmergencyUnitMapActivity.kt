@@ -413,7 +413,6 @@ class EmergencyUnitMapActivity : AppCompatActivity(), OnMapReadyCallback {
     var lineOptions:PolylineOptions? = null
     private fun updateMapLocation(location: Location?){
         getLatestResourceUri()
-
         if (applicationContext != null) {
             mLastLocation = location
             if (customerId != "") {

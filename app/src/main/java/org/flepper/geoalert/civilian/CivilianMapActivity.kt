@@ -88,33 +88,38 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
             video.text = if (broadcastStatus == BroadcastStatus.IDLE) "Broadcast" else "Disconnect"
 
         }
+
         override fun onStreamHealthUpdate(i: Int) {}
         override fun onConnectionError(connectionError: ConnectionError, s: String?) {
-            Log.i("Mybroadcastingapp","Received connection error: $connectionError, $s")
+            Log.i("Mybroadcastingapp", "Received connection error: $connectionError, $s")
         }
+
         override fun onCameraError(cameraError: CameraError) {
-            Log.i("Mybroadcastingapp","Received camera error: $cameraError")
+            Log.i("Mybroadcastingapp", "Received camera error: $cameraError")
         }
+
         override fun onChatMessage(s: String) {
-            Log.i("Mybroadcastingapp","Received chat messsage: $s")
+            Log.i("Mybroadcastingapp", "Received chat messsage: $s")
         }
+
         override fun onResolutionsScanned() {}
         override fun onCameraPreviewStateChanged() {}
         override fun onBroadcastInfoAvailable(s: String, s1: String) {
-            Log.i("Mybroadcastingapp","Received broadcast info: $s, $s1")
+            Log.i("Mybroadcastingapp", "Received broadcast info: $s, $s1")
         }
+
         override fun onBroadcastIdAvailable(id: String) {
-            Log.i("Mybroadcastingapp","Received broadcast id: $id")
+            Log.i("Mybroadcastingapp", "Received broadcast id: $id")
             toast(id)
         }
     }
 
-    private var firstZise:Int = 0
+    private var firstZise: Int = 0
     private var pickupMarker: Marker? = null
 
     private val destination: String? =
         null
-    private  var requestService:kotlin.String? = null
+    private var requestService: kotlin.String? = null
 
     private var requestBol = false
     private var radius = 1
@@ -122,7 +127,7 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
     private var driverFoundID: String? = null
     private var mLastUpdateTime: String? = null
 
-   private var destinationLatLng = LatLng(0.0, 0.0)
+    private var destinationLatLng = LatLng(0.0, 0.0)
 
     private lateinit var mMap: GoogleMap
 
@@ -134,19 +139,20 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
     private var mCustomerDatabase: DatabaseReference? = null
 
     private var userID: String? = null
+
     // location updates interval - 10sec
     private val UPDATE_INTERVAL_IN_MILLISECONDS: Long = 500
 
 
-    private var successDialog:Dialog? = null
+    private var successDialog: Dialog? = null
 
-    private var i:Int = 0
+    private var i: Int = 0
 
-    private var Latitude:String? = null
+    private var Latitude: String? = null
 
-    private var Longitude:String? = null
+    private var Longitude: String? = null
 
-    private lateinit var pickupLocation:LatLng
+    private lateinit var pickupLocation: LatLng
 
     // fastest updates interval - 5 sec
     // location updates will be received if another app is requesting the locations
@@ -167,17 +173,15 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
     private var viewEnabled = false
 
     private var customerOrDriver: String? = null
-    private  var userId:kotlin.String? = null
+    private var userId: kotlin.String? = null
 
 
-
-    private var layoutManager:LinearLayoutManager? = null
+    private var layoutManager: LinearLayoutManager? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_civilian_map)
-
 
 
         val mapFragment = supportFragmentManager
@@ -213,13 +217,13 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
         sendMessage.setOnClickListener {
-            if (!viewEnabled){
+            if (!viewEnabled) {
                 scroll.post {
                     viewEnabled = true
                     sendMessage.text = "View Map"
                     scroll.fullScroll(View.FOCUS_DOWN)
                 }
-            }else{
+            } else {
                 scroll.post {
                     viewEnabled = false
                     sendMessage.text = "Send a short message"
@@ -230,7 +234,7 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         radioButton.setOnCheckedChangeListener { radioButton, isChecked ->
-            if (isChecked){
+            if (isChecked) {
                 Handler(Looper.getMainLooper()).postDelayed({
 
                     TransitionManager.beginDelayedTransition(transitionsContainer)
@@ -241,7 +245,7 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
                     }
 
                 }, 100)
-            }else{
+            } else {
                 Handler(Looper.getMainLooper()).postDelayed({
 
                     TransitionManager.beginDelayedTransition(transitionsContainer)
@@ -319,21 +323,18 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
         help.setOnClickListener {
-            if(requestBol){
+            if (requestBol) {
                 endRide()
-            }else if(mCurrentLocation.toString().isEmpty()){
+            } else if (mCurrentLocation.toString().isEmpty()) {
                 return@setOnClickListener
-            }
-            else if (!police.isChecked && !Ambulance.isChecked && !fire.isChecked){
+            } else if (!police.isChecked && !Ambulance.isChecked && !fire.isChecked) {
                 toastShort("Please Select an Esp")
                 return@setOnClickListener
 
-            }
-            else if(!checkInternetConnection.isInternetAvailable()){
+            } else if (!checkInternetConnection.isInternetAvailable()) {
                 showSuccesDialog()
 
-            }
-            else{
+            } else {
                 val li: LayoutInflater = LayoutInflater.from(this)
                 val view: View = li.inflate(R.layout.custompopup, null)
                 val btnOkay: Button = view.findViewById(R.id.okay) as Button
@@ -406,8 +407,9 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
             backgroundProgressBarColor = R.color.colorPrimaryDark
             // or with gradient
             backgroundProgressBarColorStart = Color.WHITE
-            backgroundProgressBarColorEnd =  R.color.colorPrimaryDark
-            backgroundProgressBarColorDirection = CircularProgressBar.GradientDirection.TOP_TO_BOTTOM
+            backgroundProgressBarColorEnd = R.color.colorPrimaryDark
+            backgroundProgressBarColorDirection =
+                CircularProgressBar.GradientDirection.TOP_TO_BOTTOM
 
             // Set Width
             progressBarWidth = 7f // in DP
@@ -434,7 +436,8 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
                         val diff = System.currentTimeMillis() - startedAt
                         val second = diff / 1000 % 60
                         val min = diff / 1000 / 60
-                        live_label.text = getString(R.string.publishing_label, min.format(), second.format())
+                        live_label.text =
+                            getString(R.string.publishing_label, min.format(), second.format())
                     }
                 }
             }
@@ -487,6 +490,7 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
                         }
 
                     }
+
                     LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> {
                         val errorMessage =
                             "Location settings are inadequate, and cannot be " + "fixed here. Fix in Settings."
@@ -522,16 +526,20 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
                     mCustomerDatabase.addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(dataSnapshot: DataSnapshot) {
                             if (dataSnapshot.exists() && dataSnapshot.childrenCount > 0) {
+                                Log.e("Not found","Not found")
+
                                 val driverMap =
                                     dataSnapshot.value as Map<String, Any>?
                                 if (driverFound) {
 
+                                    Log.e("Not found","Not found")
                                     return
                                 }
                                 if (driverMap!!["service"] == requestService) {
                                     driverFound = true
                                     updateMapLocation(mCurrentLocation)
                                     driverFoundID = dataSnapshot.key
+                                    Log.e("Found","$driverFoundID")
                                     val driverRef =
                                         FirebaseDatabase.getInstance().reference.child("Users")
                                             .child("EmergencyUnit").child(driverFoundID!!)
@@ -546,8 +554,8 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
                                     map["destinationLng"] = destinationLatLng.longitude
                                     driverRef.updateChildren(map)
                                     getDriverLocation()
-                                   getDriverInfo()
-                                   getHasRideEnded()
+                                    getDriverInfo()
+                                    getHasRideEnded()
                                     mRequest.text = "Calling for help...."
                                 }
                             }
@@ -648,8 +656,9 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
                         if (distance < 0.1) {
                             text2.text = "Help has Arrived"
                         } else {
-                            val inkm = distance/1000
-                            patience.text = "We are $inkm km away from you which is approximately 10 minutes away from you. kindly exercise patients "
+                            val inkm = distance / 1000
+                            patience.text =
+                                "We are $inkm km away from you which is approximately 10 minutes away from you. kindly exercise patients "
                         }
                         mDriverMarker = mMap.addMarker(
                             MarkerOptions().position(driverLatLng).title("Your Help")
@@ -735,11 +744,12 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
         circularProgressBar.indeterminateMode = false
 
     }
-    private fun SendMessage(){
+
+    private fun SendMessage() {
         resultsHistory.clear()
         getUserHistoryIds()
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
-        val usrName  = FirebaseAuth.getInstance().currentUser!!.displayName
+        val usrName = FirebaseAuth.getInstance().currentUser!!.displayName
         val driverRef =
             FirebaseDatabase.getInstance().reference.child("Users").child("Civilians")
                 .child(userId).child("messages")
@@ -758,7 +768,6 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
         map["username"] = "isaac"
         map["message"] = message_field.text.toString()
         messageRef.child(requestId).updateChildren(map)
-
 
 
     }
@@ -783,7 +792,7 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
                 locationResult ?: return
                 resultsHistory.clear()
                 getUserHistoryIds()
-                for (location in locationResult.locations){
+                for (location in locationResult.locations) {
                     // Update UI with location data
                     // ...
                     mCurrentLocation = locationResult!!.lastLocation
@@ -842,10 +851,23 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
 
-
-    private fun updateMapLocation(location: Location?){
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(location?.latitude ?:0.0,location?.longitude?:0.0)))
-        mMap.addCircle(CircleOptions().center(LatLng(location?.latitude ?:0.0,location?.longitude?:0.0)).clickable(true).radius(0.1).fillColor(R.color.colorPrimaryDark))
+    private fun updateMapLocation(location: Location?) {
+        mMap.moveCamera(
+            CameraUpdateFactory.newLatLng(
+                LatLng(
+                    location?.latitude ?: 0.0,
+                    location?.longitude ?: 0.0
+                )
+            )
+        )
+        mMap.addCircle(
+            CircleOptions().center(
+                LatLng(
+                    location?.latitude ?: 0.0,
+                    location?.longitude ?: 0.0
+                )
+            ).clickable(true).radius(0.1).fillColor(R.color.colorPrimaryDark)
+        )
         mMap.isIndoorEnabled = true
         mMap.moveCamera(CameraUpdateFactory.zoomTo(15.0f))
         mMap.isMyLocationEnabled = true
@@ -872,7 +894,7 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
     private var nointernet: Dialog? = null
 
 
-    private fun showSuccesDialog(){
+    private fun showSuccesDialog() {
         val li: LayoutInflater = LayoutInflater.from(this)
         val view: View = li.inflate(R.layout.no_internet, null)
         val police: Button = view.findViewById(R.id.police) as Button
@@ -956,22 +978,22 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
                 if (dataSnapshot.exists()) {
                     val rideId = dataSnapshot.key
                     var timestamp: Long? = 0L
-                    var mesage:String = ""
-                    var  user = ""
+                    var mesage: String = ""
+                    var user = ""
                     for (child in dataSnapshot.children) {
                         if (child.key == "timestamp") {
                             timestamp = java.lang.Long.valueOf(child.value.toString())
                         }
                         if (child.key == "message") {
-                           mesage = child.value.toString()
+                            mesage = child.value.toString()
                         }
                         if (child.key == "username") {
                             user = child.value.toString()
                         }
                     }
-                    val obj = MessageObject(getDate(timestamp!!),mesage,user)
+                    val obj = MessageObject(getDate(timestamp!!), mesage, user)
                     resultsHistory.add(obj)
-                   list_of_messages.adapter?.notifyDataSetChanged()
+                    list_of_messages.adapter?.notifyDataSetChanged()
                 }
             }
 
@@ -991,7 +1013,7 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
                 if (dataSnapshot.exists()) {
                     for (message in dataSnapshot.children) {
                         firstZise = message.childrenCount.toInt()
-                        if (firstZise >= resultsHistory.size){
+                        if (firstZise >= resultsHistory.size) {
                             FetchRideInformation(message.key!!)
                         }
                     }
@@ -1002,7 +1024,7 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
         })
     }
 
-    private val resultsHistory  = ArrayList<MessageObject>()
+    private val resultsHistory = ArrayList<MessageObject>()
 
     private fun getDataSetHistory(): List<MessageObject> {
         return resultsHistory.asReversed()
@@ -1013,8 +1035,6 @@ class CivilianMapActivity : AppCompatActivity(), OnMapReadyCallback {
         cal.timeInMillis = time * 1000
         return android.text.format.DateFormat.format("MM-dd-yyyy hh:mm", cal).toString()
     }
-
-
 
 
     private fun getCurrentTimestamp(): Long? {
