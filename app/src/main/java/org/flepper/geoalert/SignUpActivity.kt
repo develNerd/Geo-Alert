@@ -2,6 +2,7 @@ package org.flepper.geoalert
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
@@ -20,9 +21,14 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
+        val isEmergency = intent.getBooleanExtra("emergency_unit",false)
+        Log.e("isEmergency",isEmergency.toString())
         mAuth = FirebaseAuth.getInstance()
 
 
+        Signin.setOnClickListener {
+            onBackPressed()
+        }
 
         signup.setOnClickListener {
 
@@ -50,14 +56,11 @@ class SignUpActivity : AppCompatActivity() {
                                 val userId = mAuth!!.currentUser!!.uid
                                 val currentUserDb =
                                     FirebaseDatabase.getInstance().reference.child("Users")
-                                        .child("Civilians").child(userId)
+                                        .child(if (isEmergency) "EmergencyUnit" else "Civilians").child(userId)
                                 currentUserDb.setValue(true)
                                 progress.visibility = View.GONE
-                                snackbar.setAction("ok"){
-                                    val intent =
-                                        Intent(this, UserInfo::class.java)
-                                    startActivity(intent)
-                                    finish()
+                                snackbar.setAction("Next"){
+                                    singUpSuccess(isEmergency)
                                 }
                                 snackbar.show()
 
@@ -82,6 +85,14 @@ class SignUpActivity : AppCompatActivity() {
 
 
 
+    }
+
+    fun singUpSuccess(isEmergency:Boolean){
+        val intent =
+            Intent(this, UserInfo::class.java)
+        intent.putExtra("emergency_unit",isEmergency)
+        startActivity(intent)
+        finish()
     }
 
     override fun onStart() {

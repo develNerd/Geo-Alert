@@ -49,6 +49,7 @@ class UserInfo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_info)
+        val isEmergency = intent.getBooleanExtra("emergency_unit",false)
 
         isStoragePermissionGranted()
 
@@ -59,7 +60,7 @@ class UserInfo : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         userID = mAuth?.currentUser!!.uid
         mCustomerDatabase =
-            FirebaseDatabase.getInstance().reference.child("Users").child("Civilians")
+            FirebaseDatabase.getInstance().reference.child("Users").child(if (isEmergency) "EmergencyUnit" else "Civilians")
                 .child(userID!!)
 
         val items = listOf("Male", "Female")

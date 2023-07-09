@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_emergency_unit_login.*
+import kotlinx.android.synthetic.main.activity_login.signUp
 import org.flepper.geoalert.R
+import org.flepper.geoalert.SignUpActivity
 import org.flepper.geoalert.toast
 
 class EmergencyUnitLogin : AppCompatActivity() {
@@ -32,6 +34,14 @@ class EmergencyUnitLogin : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             }
+        }
+
+        signUp.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java).also {
+                it.putExtra("emergency_unit",true)
+            }
+            startActivity(intent)
+
         }
 
         login.setOnClickListener {
